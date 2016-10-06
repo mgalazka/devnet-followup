@@ -62,6 +62,10 @@ def devnet():
         t.say("Text me your email address to receive info about DevNet!")
     return t.RenderJson()
 
+@app.route("/")
+def app():
+    return ('', 204)
+
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0')
