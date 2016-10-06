@@ -1,4 +1,3 @@
 flask
-tropo
 smtplib
 html2text
