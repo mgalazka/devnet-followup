@@ -37,10 +37,11 @@ def buildBody():
     html = """
     <html>
     <body>
+    <p><img src='""" + os.environ["HOST_DEVNET_FOLLOWUP"] + """/static/devnet21.png'></p>
     <h2>Cisco DevNet Happenings</h2>
     <p>Thank you for your interest in Cisco DevNet! Please check out <a href="http://developer.cisco.com">developer.cisco.com</a> for all things Cisco DevNet.</p>
     <p>Wondering what you can accomplish with DevNet? View some <a href="https://www.youtube.com/playlist?list=PL2k86RlAekM-k0Xez2X5Jl6v4-07C1T0j">innovator videos</a> on Youtube!</p>
-    <p>Have questions? <a href="">Join a Spark Room</a> to talk directly with the DevNet team!</p>
+    <p>Have questions? <a href="https://developer.cisco.com/site/spark-chat/">Join a Spark Room</a> to talk directly with the DevNet team!</p>
     </body>
     </html>
     """
@@ -55,7 +56,7 @@ def devnet():
     text = str.strip(s.initialText)
     t = Tropo()
     if(re.fullmatch("[^@ ]+@[^ ]+\.[^@ ]+",text)):
-        t.say("Thanks, sending email sent to " + text)
+        t.say("Thanks, sending email to " + text)
         htmlbody = buildBody()
         sendEmail(text, "Thanks for Visiting Cisco DevNet!", htmlbody)
     else:
