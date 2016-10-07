@@ -63,8 +63,8 @@ def devnet():
     return t.RenderJson()
 
 @app.route("/")
-def app():
-    return ('', 204)
+def hello():
+    return "Hello World"
 
 
 if __name__ == "__main__":
