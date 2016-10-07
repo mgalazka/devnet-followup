@@ -49,7 +49,7 @@ def buildBody():
 
 app = Flask(__name__)
 
-@app.route("/devnet")
+@app.route("/devnet", methods=['POST'])
 def devnet():
     s = Session(request.get_data().decode('utf-8'))
     text = str.strip(s.initialText)
