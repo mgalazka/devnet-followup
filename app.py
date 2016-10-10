@@ -25,11 +25,12 @@ def sendEmail(recipient, subject, body):
     msg.attach(part2)
 
     mailsvr = smtplib.SMTP()
-    mailsvr.connect(server,587)
+    # mailsvr.connect(server,587)
+    mailsvr.connect(server,25)
     mailsvr._host = server
     mailsvr.ehlo()
-    mailsvr.starttls()
-    mailsvr.login(username, password)
+    # mailsvr.starttls()
+    # mailsvr.login(username, password)
     mailsvr.sendmail(msg['From'], msg['To'], msg.as_string())
     return True
 
@@ -41,7 +42,10 @@ def buildBody():
     <h2>Cisco DevNet Happenings</h2>
     <p>Thank you for your interest in Cisco DevNet! Please check out <a href="http://developer.cisco.com">developer.cisco.com</a> for all things Cisco DevNet.</p>
     <p>Wondering what you can accomplish with DevNet? View some <a href="https://www.youtube.com/playlist?list=PL2k86RlAekM-k0Xez2X5Jl6v4-07C1T0j">innovator videos</a> on Youtube!</p>
-    <p>Have questions? <a href="https://developer.cisco.com/site/spark-chat/">Join a Spark Room</a> to talk directly with the DevNet team!</p>
+    <p>Have questions? <a href="https://developer.cisco.com/site/spark-chat/">Join a Spark Room</a> to talk directly with the DevNet team!
+    Or check out all other <a href="https://developer.cisco.com/site/devnet/support/">support options</a> that are available.</p>
+    <p>Thank you again for your interest!</p>
+    <p><i>Powered by Cisco <a href="https://www.tropo.com/">Tropo</a></i></p>
     </body>
     </html>
     """
